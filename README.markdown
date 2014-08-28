@@ -28,6 +28,6 @@ for _ in 0..<1000 {
 }
 ```
 
-# Lisence
+# License
 
-`Concurrent` is available under the MIT License. See LISENCE file for more info.
+`Concurrent` is available under the MIT License. See LICENSE file for more info.
