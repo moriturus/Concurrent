@@ -21,7 +21,6 @@
 		BE6E096019AF2A37000047E0 /* Sendable.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE6E094C19AF2A37000047E0 /* Sendable.swift */; };
 		BE6E096119AF2A37000047E0 /* SignalSendable.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE6E094D19AF2A37000047E0 /* SignalSendable.swift */; };
 		BE6E096219AF2A37000047E0 /* Unlockable.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE6E094E19AF2A37000047E0 /* Unlockable.swift */; };
-		BE6E096319AF2A37000047E0 /* Value.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE6E094F19AF2A37000047E0 /* Value.swift */; };
 		BE6E096419AF2A37000047E0 /* Waitable.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE6E095019AF2A37000047E0 /* Waitable.swift */; };
 		BE6E096519AF2AA1000047E0 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BECE3600199CA8470028ECB5 /* Info.plist */; };
 		BECE3602199CA8470028ECB5 /* ConcurrentTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BECE3601199CA8470028ECB5 /* ConcurrentTests.swift */; };
@@ -42,7 +41,6 @@
 		BE6E094C19AF2A37000047E0 /* Sendable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Sendable.swift; sourceTree = "<group>"; };
 		BE6E094D19AF2A37000047E0 /* SignalSendable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignalSendable.swift; sourceTree = "<group>"; };
 		BE6E094E19AF2A37000047E0 /* Unlockable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Unlockable.swift; sourceTree = "<group>"; };
-		BE6E094F19AF2A37000047E0 /* Value.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Value.swift; sourceTree = "<group>"; };
 		BE6E095019AF2A37000047E0 /* Waitable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Waitable.swift; sourceTree = "<group>"; };
 		BECE35F2199CA8470028ECB5 /* Concurrent.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Concurrent.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BECE35F6199CA8470028ECB5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -104,7 +102,6 @@
 				BE6E094C19AF2A37000047E0 /* Sendable.swift */,
 				BE6E094D19AF2A37000047E0 /* SignalSendable.swift */,
 				BE6E094E19AF2A37000047E0 /* Unlockable.swift */,
-				BE6E094F19AF2A37000047E0 /* Value.swift */,
 				BE6E095019AF2A37000047E0 /* Waitable.swift */,
 				BECE35F5199CA8470028ECB5 /* Supporting Files */,
 			);
@@ -247,7 +244,6 @@
 				BE6E095119AF2A37000047E0 /* Channel.swift in Sources */,
 				BE6E096019AF2A37000047E0 /* Sendable.swift in Sources */,
 				BE6E096119AF2A37000047E0 /* SignalSendable.swift in Sources */,
-				BE6E096319AF2A37000047E0 /* Value.swift in Sources */,
 				BE6E095719AF2A37000047E0 /* Lockable.swift in Sources */,
 				BE6E095F19AF2A37000047E0 /* Semaphore.swift in Sources */,
 				BE6E095A19AF2A37000047E0 /* Poppable.swift in Sources */,

@@ -8,6 +8,7 @@
 
 import Cocoa
 import XCTest
+import Concurrent
 
 class ConcurrentTests: XCTestCase {
     
@@ -21,16 +22,99 @@ class ConcurrentTests: XCTestCase {
         super.tearDown()
     }
     
-    func testExample() {
-        // This is an example of a functional test case.
-        XCTAssert(true, "Pass")
+    func testAsync() {
+        
+        let ch = Channel<Bool>()
+        
+        async {
+            
+            ch.send(true)
+            
+        }
+        
+        let result = ch.receive()
+        
+        XCTAssertTrue(result, "result is not true")
+        
     }
     
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measureBlock() {
-            // Put the code you want to measure the time of here.
+    func testSync() {
+        
+        let ch = Channel<Bool>()
+        
+        sync {
+            
+            ch.send(true)
+            
         }
+        
+        let result = ch.receive()
+        
+        XCTAssertTrue(result, "result is not true")
+        
+    }
+    
+    func testAsyncOnMain() {
+        
+        let ch = Channel<Bool>()
+        
+        async {
+            
+            asyncOnMain {
+                
+                ch.send(NSThread.isMainThread())
+                
+            }
+            
+        }
+        
+        async {
+            
+            let result = ch.receive()
+            
+            XCTAssertTrue(result, "result is not true")
+            
+        }
+        
+    }
+    
+    func testApply() {
+        
+        let ch = Channel<Bool>()
+        
+        apply(1000) {
+            
+            i in
+            
+            if i > 998 {
+                
+                ch.send(true)
+                
+            }
+            
+        }
+        
+        let result = ch.receive()
+        
+        XCTAssertTrue(result, "result is not true")
+        
+    }
+    
+    func testAfter() {
+        
+        let ch = Channel<Bool>()
+        let time = dispatch_time(DISPATCH_TIME_NOW, Int64(3*NSEC_PER_SEC))
+        
+        after(time) {
+            
+            ch.send(true)
+            
+        }
+        
+        let result = ch.receive()
+        
+        XCTAssertTrue(result, "result is not true")
+        
     }
     
 }

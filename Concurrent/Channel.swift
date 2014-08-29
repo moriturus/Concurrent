@@ -22,7 +22,7 @@ public class Channel<T> {
 
 extension Channel {
     
-    convenience public init(_ capacity : Int = 5) {
+    convenience public init(_ capacity : Int = 16) {
         
         let (s, r) = Channel<T>.gateways(capacity)
         self.init(s,r)
@@ -33,7 +33,7 @@ extension Channel {
 
 extension Channel {
     
-    public class func gateways(capacity : Int) -> (Sender<T>,Receiver<T>) {
+    public class func gateways(_ capacity : Int = 16) -> (Sender<T>,Receiver<T>) {
         
         let storage = SafeQueue<T>(capacity)
         return (Sender(storage), Receiver(storage))
