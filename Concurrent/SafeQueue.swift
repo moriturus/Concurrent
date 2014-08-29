@@ -8,12 +8,11 @@
 
 public class SafeQueue<T> {
     
-    private var storage : [Value<T>]
+    private var storage : [T] = []
     private var mutex : Mutex
     
     public init(_ capacity : Int) {
         
-        storage = []
         storage.reserveCapacity(capacity)
         mutex = Mutex()
         
@@ -27,7 +26,7 @@ extension SafeQueue : Pushable {
         
         mutex.lock()
         
-        storage.append(Value(value))
+        storage.append(value)
         
         mutex.unlock()
         
@@ -54,7 +53,7 @@ extension SafeQueue : Poppable {
         
         mutex.unlock()
         
-        return retval.get()
+        return retval
         
     }
     
