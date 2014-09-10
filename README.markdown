@@ -8,15 +8,17 @@ The Library is now developing for iOS 8 and OSX Yosemite and written in Apple Sw
 ```swift
 let ch = Channel<UInt>()
 
-async {
+Dispatch.async {
 
-    apply(1000) {
+    Dispatch.apply(1000) {
 
         i in
 
         ch.send(i)
 
     }
+    
+    return
 
 }
 
@@ -33,15 +35,17 @@ or
 ```swift
 let (s,r) = Channel<UInt>.gateways()
 
-async {
+Dispatch.async {
 
-    apply(1000) {
+    Dispatch.apply(1000) {
 
         i in
 
         s.send(i)
 
     }
+    
+    return
 
 }
 
