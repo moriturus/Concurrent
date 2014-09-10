@@ -2,7 +2,7 @@
 //  ConcurrentTests.swift
 //  ConcurrentTests
 //
-//  Created by Henrique Sasaki Yuya on 8/14/14.
+//  Created by moriturus on 8/14/14.
 //  Copyright (c) 2014 moriturus. All rights reserved.
 //
 
@@ -26,7 +26,7 @@ class ConcurrentTests: XCTestCase {
         
         let ch = Channel<Bool>()
         
-        async {
+        Dispatch.async {
             
             ch.send(true)
             
@@ -42,7 +42,7 @@ class ConcurrentTests: XCTestCase {
         
         let ch = Channel<Bool>()
         
-        sync {
+        Dispatch.sync {
             
             ch.send(true)
             
@@ -58,17 +58,19 @@ class ConcurrentTests: XCTestCase {
         
         let ch = Channel<Bool>()
         
-        async {
+        Dispatch.async {
             
-            asyncOnMain {
+            Dispatch.asyncOnMain {
                 
                 ch.send(NSThread.isMainThread())
                 
             }
             
+            return
+            
         }
         
-        async {
+        Dispatch.async {
             
             let result = ch.receive()
             
@@ -82,7 +84,7 @@ class ConcurrentTests: XCTestCase {
         
         let ch = Channel<Bool>()
         
-        apply(1000) {
+        Dispatch.apply(1000) {
             
             i in
             
@@ -103,9 +105,9 @@ class ConcurrentTests: XCTestCase {
     func testAfter() {
         
         let ch = Channel<Bool>()
-        let time = dispatch_time(DISPATCH_TIME_NOW, Int64(3*NSEC_PER_SEC))
+        let time = dispatch_time(DISPATCH_TIME_NOW, Int64(2*NSEC_PER_SEC))
         
-        after(time) {
+        Dispatch.after(time) {
             
             ch.send(true)
             
@@ -114,6 +116,58 @@ class ConcurrentTests: XCTestCase {
         let result = ch.receive()
         
         XCTAssertTrue(result, "result is not true")
+        
+    }
+    
+    
+    func testDispatchChain() {
+        
+        let ch = Channel<Bool>()
+        
+        let time = dispatch_time(DISPATCH_TIME_NOW, Int64(2*NSEC_PER_SEC))
+        
+        Dispatch.async {
+            
+            ch.send(true)
+            
+        } .after(time) {
+                
+            ch.send(false)
+                
+        }
+        
+        let result1 = ch.receive()
+        let result2 = ch.receive()
+        
+        XCTAssertTrue(result1, "result1 is not true")
+        XCTAssertFalse(result2, "resutl2 is true")
+        
+    }
+    
+    func testSampleCode() {
+        
+        let ch = Channel<UInt>()
+        
+        Dispatch.async {
+            
+            Dispatch.apply(1000) {
+                
+                i in
+                
+                ch.send(i)
+                
+            }
+            
+            return
+            
+        }
+        
+        for i in 0..<1000 {
+            
+            let val = ch.receive()
+            XCTAssertTrue(UInt(i) == val, "val is not equal i")
+            
+        }
         
     }
     

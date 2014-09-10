@@ -1,12 +1,10 @@
 //
 //  Gateway.swift
-//  channel
+//  Concurrent
 //
-//  Created by Henrique Sasaki Yuya on 8/12/14.
+//  Created by moriturus on 8/12/14.
 //  Copyright (c) 2014 moriturus. All rights reserved.
 //
-
-import Foundation
 
 private class Gateway<T> {
     
@@ -22,7 +20,7 @@ private class Gateway<T> {
 
 public class Sender<T> : Gateway<T> {
     
-    override init(_ storage: SafeQueue<T>) {
+    override public init(_ storage: SafeQueue<T>) {
         
         super.init(storage)
         
@@ -57,21 +55,6 @@ extension Receiver : Receivable {
         return storage.pop()
         
     }
-    
-}
-
-infix operator <- {}
-
-public func <-<T>(sender : Sender<T>, value : T) {
-    
-    sender.send(value)
-    
-}
-
-prefix operator <- {}
-public prefix func <-<T>(receiver : Receiver<T>) -> T {
-    
-    return receiver.receive()
     
 }
 

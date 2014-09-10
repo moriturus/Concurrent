@@ -1,8 +1,8 @@
 //
 //  Channel.swift
-//  channel
+//  Concurrent
 //
-//  Created by Henrique Sasaki Yuya on 8/12/14.
+//  Created by moriturus on 8/12/14.
 //  Copyright (c) 2014 moriturus. All rights reserved.
 //
 
@@ -22,9 +22,9 @@ public class Channel<T> {
 
 extension Channel {
     
-    convenience public init(_ capacity : Int = 16) {
+    convenience public init() {
         
-        let (s, r) = Channel<T>.gateways(capacity)
+        let (s, r) = Channel<T>.gateways()
         self.init(s,r)
         
     }
@@ -33,9 +33,9 @@ extension Channel {
 
 extension Channel {
     
-    public class func gateways(_ capacity : Int = 16) -> (Sender<T>,Receiver<T>) {
+    public class func gateways() -> (Sender<T>,Receiver<T>) {
         
-        let storage = SafeQueue<T>(capacity)
+        let storage = SafeQueue<T>()
         return (Sender(storage), Receiver(storage))
         
     }

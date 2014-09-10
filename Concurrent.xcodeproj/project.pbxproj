@@ -8,8 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		BE6E095119AF2A37000047E0 /* Channel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE6E093D19AF2A37000047E0 /* Channel.swift */; };
-		BE6E095219AF2A37000047E0 /* Concurrent.h in Headers */ = {isa = PBXBuildFile; fileRef = BE6E093E19AF2A37000047E0 /* Concurrent.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		BE6E095319AF2A37000047E0 /* Functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE6E093F19AF2A37000047E0 /* Functions.swift */; };
+		BE6E095319AF2A37000047E0 /* Dispatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE6E093F19AF2A37000047E0 /* Dispatch.swift */; };
 		BE6E095519AF2A37000047E0 /* Gateway.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE6E094119AF2A37000047E0 /* Gateway.swift */; };
 		BE6E095719AF2A37000047E0 /* Lockable.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE6E094319AF2A37000047E0 /* Lockable.swift */; };
 		BE6E095919AF2A37000047E0 /* Mutex.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE6E094519AF2A37000047E0 /* Mutex.swift */; };
@@ -23,13 +22,26 @@
 		BE6E096219AF2A37000047E0 /* Unlockable.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE6E094E19AF2A37000047E0 /* Unlockable.swift */; };
 		BE6E096419AF2A37000047E0 /* Waitable.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE6E095019AF2A37000047E0 /* Waitable.swift */; };
 		BE6E096519AF2AA1000047E0 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BECE3600199CA8470028ECB5 /* Info.plist */; };
+		BEBE9E6F19C0837E0028EB86 /* Channel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE6E093D19AF2A37000047E0 /* Channel.swift */; };
+		BEBE9E7019C0837E0028EB86 /* Dispatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE6E093F19AF2A37000047E0 /* Dispatch.swift */; };
+		BEBE9E7119C0837E0028EB86 /* Gateway.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE6E094119AF2A37000047E0 /* Gateway.swift */; };
+		BEBE9E7219C0837E0028EB86 /* Lockable.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE6E094319AF2A37000047E0 /* Lockable.swift */; };
+		BEBE9E7319C0837E0028EB86 /* Mutex.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE6E094519AF2A37000047E0 /* Mutex.swift */; };
+		BEBE9E7419C0837E0028EB86 /* Poppable.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE6E094619AF2A37000047E0 /* Poppable.swift */; };
+		BEBE9E7519C0837E0028EB86 /* Pushable.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE6E094719AF2A37000047E0 /* Pushable.swift */; };
+		BEBE9E7619C0837E0028EB86 /* Receivable.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE6E094919AF2A37000047E0 /* Receivable.swift */; };
+		BEBE9E7719C0837E0028EB86 /* SafeQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE6E094A19AF2A37000047E0 /* SafeQueue.swift */; };
+		BEBE9E7819C0837E0028EB86 /* Semaphore.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE6E094B19AF2A37000047E0 /* Semaphore.swift */; };
+		BEBE9E7919C0837E0028EB86 /* Sendable.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE6E094C19AF2A37000047E0 /* Sendable.swift */; };
+		BEBE9E7A19C0837E0028EB86 /* SignalSendable.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE6E094D19AF2A37000047E0 /* SignalSendable.swift */; };
+		BEBE9E7B19C0837E0028EB86 /* Unlockable.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE6E094E19AF2A37000047E0 /* Unlockable.swift */; };
+		BEBE9E7C19C0837E0028EB86 /* Waitable.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE6E095019AF2A37000047E0 /* Waitable.swift */; };
 		BECE3602199CA8470028ECB5 /* ConcurrentTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BECE3601199CA8470028ECB5 /* ConcurrentTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		BE6E093D19AF2A37000047E0 /* Channel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Channel.swift; sourceTree = "<group>"; };
-		BE6E093E19AF2A37000047E0 /* Concurrent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Concurrent.h; sourceTree = "<group>"; };
-		BE6E093F19AF2A37000047E0 /* Functions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Functions.swift; sourceTree = "<group>"; };
+		BE6E093F19AF2A37000047E0 /* Dispatch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Dispatch.swift; sourceTree = "<group>"; };
 		BE6E094119AF2A37000047E0 /* Gateway.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Gateway.swift; sourceTree = "<group>"; };
 		BE6E094319AF2A37000047E0 /* Lockable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Lockable.swift; sourceTree = "<group>"; };
 		BE6E094519AF2A37000047E0 /* Mutex.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Mutex.swift; sourceTree = "<group>"; };
@@ -42,6 +54,7 @@
 		BE6E094D19AF2A37000047E0 /* SignalSendable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignalSendable.swift; sourceTree = "<group>"; };
 		BE6E094E19AF2A37000047E0 /* Unlockable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Unlockable.swift; sourceTree = "<group>"; };
 		BE6E095019AF2A37000047E0 /* Waitable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Waitable.swift; sourceTree = "<group>"; };
+		BEBE9E5619C083230028EB86 /* Concurrent_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Concurrent_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BECE35F2199CA8470028ECB5 /* Concurrent.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Concurrent.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BECE35F6199CA8470028ECB5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BECE35FD199CA8470028ECB5 /* ConcurrentTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ConcurrentTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -50,6 +63,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		BEBE9E5219C083230028EB86 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		BECE35EE199CA8470028ECB5 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -81,6 +101,7 @@
 			children = (
 				BECE35F2199CA8470028ECB5 /* Concurrent.framework */,
 				BECE35FD199CA8470028ECB5 /* ConcurrentTests.xctest */,
+				BEBE9E5619C083230028EB86 /* Concurrent_iOS.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -88,9 +109,8 @@
 		BECE35F4199CA8470028ECB5 /* Concurrent */ = {
 			isa = PBXGroup;
 			children = (
-				BE6E093E19AF2A37000047E0 /* Concurrent.h */,
 				BE6E093D19AF2A37000047E0 /* Channel.swift */,
-				BE6E093F19AF2A37000047E0 /* Functions.swift */,
+				BE6E093F19AF2A37000047E0 /* Dispatch.swift */,
 				BE6E094119AF2A37000047E0 /* Gateway.swift */,
 				BE6E094319AF2A37000047E0 /* Lockable.swift */,
 				BE6E094519AF2A37000047E0 /* Mutex.swift */,
@@ -136,17 +156,41 @@
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
+		BEBE9E5319C083230028EB86 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		BECE35EF199CA8470028ECB5 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BE6E095219AF2A37000047E0 /* Concurrent.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
+		BEBE9E5519C083230028EB86 /* Concurrent_iOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BEBE9E6919C083230028EB86 /* Build configuration list for PBXNativeTarget "Concurrent_iOS" */;
+			buildPhases = (
+				BEBE9E5119C083230028EB86 /* Sources */,
+				BEBE9E5219C083230028EB86 /* Frameworks */,
+				BEBE9E5319C083230028EB86 /* Headers */,
+				BEBE9E5419C083230028EB86 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Concurrent_iOS;
+			productName = ConcurrentiOS;
+			productReference = BEBE9E5619C083230028EB86 /* Concurrent_iOS.framework */;
+			productType = "com.apple.product-type.framework";
+		};
 		BECE35F1199CA8470028ECB5 /* Concurrent */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = BECE3605199CA8470028ECB5 /* Build configuration list for PBXNativeTarget "Concurrent" */;
@@ -191,6 +235,9 @@
 				LastUpgradeCheck = 0600;
 				ORGANIZATIONNAME = moriturus;
 				TargetAttributes = {
+					BEBE9E5519C083230028EB86 = {
+						CreatedOnToolsVersion = 6.1;
+					};
 					BECE35F1199CA8470028ECB5 = {
 						CreatedOnToolsVersion = 6.0;
 					};
@@ -212,12 +259,20 @@
 			projectRoot = "";
 			targets = (
 				BECE35F1199CA8470028ECB5 /* Concurrent */,
+				BEBE9E5519C083230028EB86 /* Concurrent_iOS */,
 				BECE35FC199CA8470028ECB5 /* ConcurrentTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		BEBE9E5419C083230028EB86 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		BECE35F0199CA8470028ECB5 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -236,6 +291,27 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		BEBE9E5119C083230028EB86 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BEBE9E6F19C0837E0028EB86 /* Channel.swift in Sources */,
+				BEBE9E7019C0837E0028EB86 /* Dispatch.swift in Sources */,
+				BEBE9E7119C0837E0028EB86 /* Gateway.swift in Sources */,
+				BEBE9E7219C0837E0028EB86 /* Lockable.swift in Sources */,
+				BEBE9E7319C0837E0028EB86 /* Mutex.swift in Sources */,
+				BEBE9E7419C0837E0028EB86 /* Poppable.swift in Sources */,
+				BEBE9E7519C0837E0028EB86 /* Pushable.swift in Sources */,
+				BEBE9E7619C0837E0028EB86 /* Receivable.swift in Sources */,
+				BEBE9E7719C0837E0028EB86 /* SafeQueue.swift in Sources */,
+				BEBE9E7819C0837E0028EB86 /* Semaphore.swift in Sources */,
+				BEBE9E7919C0837E0028EB86 /* Sendable.swift in Sources */,
+				BEBE9E7A19C0837E0028EB86 /* SignalSendable.swift in Sources */,
+				BEBE9E7B19C0837E0028EB86 /* Unlockable.swift in Sources */,
+				BEBE9E7C19C0837E0028EB86 /* Waitable.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		BECE35ED199CA8470028ECB5 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -253,7 +329,7 @@
 				BE6E095519AF2A37000047E0 /* Gateway.swift in Sources */,
 				BE6E095B19AF2A37000047E0 /* Pushable.swift in Sources */,
 				BE6E095E19AF2A37000047E0 /* SafeQueue.swift in Sources */,
-				BE6E095319AF2A37000047E0 /* Functions.swift in Sources */,
+				BE6E095319AF2A37000047E0 /* Dispatch.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -268,6 +344,49 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
+		BEBE9E6A19C083230028EB86 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = Concurrent/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		BEBE9E6B19C083230028EB86 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = Concurrent/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
 		BECE3603199CA8470028ECB5 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -429,6 +548,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		BEBE9E6919C083230028EB86 /* Build configuration list for PBXNativeTarget "Concurrent_iOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BEBE9E6A19C083230028EB86 /* Debug */,
+				BEBE9E6B19C083230028EB86 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		BECE35EC199CA8470028ECB5 /* Build configuration list for PBXProject "Concurrent" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

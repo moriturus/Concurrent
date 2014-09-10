@@ -1,12 +1,12 @@
 //
 //  Mutex.swift
-//  channel
+//  Concurrent
 //
-//  Created by Henrique Sasaki Yuya on 8/12/14.
+//  Created by moriturus on 8/12/14.
 //  Copyright (c) 2014 moriturus. All rights reserved.
 //
 
-import Foundation
+import Darwin
 
 public class Mutex {
     
@@ -76,7 +76,4 @@ extension Mutex : SignalSendable {
     }
     
 }
-
-
-
 
