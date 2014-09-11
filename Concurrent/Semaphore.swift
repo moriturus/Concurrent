@@ -12,7 +12,7 @@ public class Semaphore {
     
     private var semaphore : dispatch_semaphore_t
     
-    init(_ count : Int) {
+    public init(_ count : Int) {
         
         semaphore = dispatch_semaphore_create(count)
         
@@ -22,7 +22,7 @@ public class Semaphore {
 
 extension Semaphore {
     
-    convenience init() {
+    public convenience init() {
         
         self.init(1)
         
