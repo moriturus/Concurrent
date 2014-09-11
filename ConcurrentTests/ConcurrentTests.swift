@@ -137,10 +137,86 @@ class ConcurrentTests: XCTestCase {
         }
         
         let result1 = ch.receive()
-        let result2 = ch.receive()
         
         XCTAssertTrue(result1, "result1 is not true")
+        
+        let result2 = ch.receive()
+        
         XCTAssertFalse(result2, "resutl2 is true")
+        
+    }
+    
+    func testSenderArgument() {
+        
+        let ch = Channel<Bool>()
+        
+        let f = { (sender : Sender<Bool>) -> Void in
+            
+            let time = dispatch_time(DISPATCH_TIME_NOW, Int64(2*NSEC_PER_SEC))
+            
+            Dispatch.after(time) {
+                
+                sender.send(true)
+                
+            }
+            
+        }
+        
+        f(ch.sender)
+        
+        let result = ch.receive()
+        
+        XCTAssertTrue(result, "result1 is not true")
+        
+    }
+    
+    func testReceiverArgument() {
+        
+        let ch = Channel<Bool>()
+        
+        let f = { (receiver : Receiver<Bool>) -> Void in
+            
+            let result = receiver.receive()
+            XCTAssertTrue(result, "result1 is not true")
+            
+        }
+        
+        Dispatch.async {
+            
+            ch.send(true)
+            
+        }
+        
+        f(ch.receiver)
+        
+        
+    }
+    
+    func testNestedChannel() {
+        
+        let parent = Channel<Channel<Bool>>()
+        
+        let time1 = dispatch_time(DISPATCH_TIME_NOW, Int64(2*NSEC_PER_SEC))
+    
+        Dispatch.after(time1) {
+            
+            let child = Channel<Bool>()
+            parent.send(child)
+            
+            let time2 = dispatch_time(DISPATCH_TIME_NOW, Int64(2*NSEC_PER_SEC))
+            
+            Dispatch.after(time2) {
+                
+                child.send(true)
+                
+            }
+            
+            return
+            
+        }
+        
+        let result = parent.receive().receive()
+        XCTAssertTrue(result, "result is not true")
         
     }
     
@@ -150,22 +226,20 @@ class ConcurrentTests: XCTestCase {
         
         Dispatch.async {
             
-            Dispatch.apply(1000) {
+            for i in 0..<1000 {
                 
-                i in
-                
-                ch.send(i)
+                let val = ch.receive()
+                XCTAssertTrue(UInt(i) == val, "\(val) is not equal to \(i)")
                 
             }
             
-            return
-            
         }
         
-        for i in 0..<1000 {
+        Dispatch.apply(1000) {
             
-            let val = ch.receive()
-            XCTAssertTrue(UInt(i) == val, "val is not equal i")
+            i in
+            
+            ch.send(i)
             
         }
         

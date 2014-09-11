@@ -8,8 +8,8 @@
 
 public class Channel<T> {
     
-    private var sender : Sender<T>
-    private var receiver : Receiver<T>
+    public let sender : Sender<T>
+    public let receiver : Receiver<T>
     
     public init(_ sender : Sender<T>, _ receiver : Receiver<T>) {
         
