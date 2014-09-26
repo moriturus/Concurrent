@@ -6,11 +6,22 @@
 //  Copyright (c) 2014 moriturus. All rights reserved.
 //
 
+/**
+thread safe queue class
+*/
 public class SafeQueue<T> {
     
+    /// storage
     private var storage : [T] = []
+    
+    /// thread mutex
     private var mutex : Mutex
     
+    /**
+    default initializer
+    
+    :returns: SafeQueue instance
+    */
     public init() {
         
         mutex = Mutex()
@@ -19,8 +30,16 @@ public class SafeQueue<T> {
     
 }
 
+/**
+extend SafeQueue class to Pushable protocol
+*/
 extension SafeQueue : Pushable {
     
+    /**
+    push a value to the storage
+    
+    :param: value pushing value
+    */
     public func push(value: T) {
         
         mutex.lock()
@@ -35,8 +54,16 @@ extension SafeQueue : Pushable {
     
 }
 
+/**
+extend SafeQueue class to Poppable protocol
+*/
 extension SafeQueue : Poppable {
     
+    /**
+    pop a value from the storage
+    
+    :returns: popped value
+    */
     public func pop() -> T {
         
         mutex.lock()
@@ -58,6 +85,9 @@ extension SafeQueue : Poppable {
     
 }
 
+/**
+extend SafeQueue class to isEmpty property
+*/
 extension SafeQueue {
     
     public var isEmpty : Bool {

@@ -8,13 +8,26 @@
 
 import Darwin
 
+/**
+posix thread mutex wrapper class
+*/
 public class Mutex {
     
+    /// mutex object pointer
     private let mutex: UnsafeMutablePointer<pthread_mutex_t>
+    
+    /// condition object pointer
     private let condition: UnsafeMutablePointer<pthread_cond_t>
+    
+    /// attribute object pointer
     private let attribute: UnsafeMutablePointer<pthread_mutexattr_t>
     
-    init() {
+    /**
+    initializer
+    
+    :returns: mutex class instance
+    */
+    public init() {
         
         mutex = UnsafeMutablePointer.alloc(sizeof(pthread_mutex_t))
         condition = UnsafeMutablePointer.alloc(sizeof(pthread_cond_t))
@@ -27,6 +40,9 @@ public class Mutex {
         
     }
     
+    /**
+    deinitializer
+    */
     deinit {
         
         pthread_cond_destroy(condition);
@@ -37,8 +53,14 @@ public class Mutex {
     
 }
 
+/**
+extend Mutex class to Lockable protocol
+*/
 extension Mutex : Lockable {
     
+    /**
+    lock a thread
+    */
     public func lock() {
         
         pthread_mutex_lock(mutex)
@@ -47,8 +69,14 @@ extension Mutex : Lockable {
     
 }
 
+/**
+extend Mutex class to Lockable protocol
+*/
 extension Mutex : Unlockable {
     
+    /**
+    unlock a thread
+    */
     public func unlock() {
         
         pthread_mutex_unlock(mutex)
@@ -57,8 +85,16 @@ extension Mutex : Unlockable {
     
 }
 
+/**
+extend Mutex class to Waitable protocol
+*/
 extension Mutex : Waitable {
     
+    /**
+    wait a thread until signal()
+    
+    :returns: whether or not succeed in waiting a thread
+    */
     public func wait() -> Bool {
         
         return pthread_cond_wait(condition, mutex) == 0
@@ -67,8 +103,16 @@ extension Mutex : Waitable {
     
 }
 
+/**
+extend Mutex class to SignalSendable protocol
+*/
 extension Mutex : SignalSendable {
     
+    /**
+    send a signal to the waiting thread
+    
+    :returns: whether or not succeed in sending a signal to a thread
+    */
     public func signal() -> Bool {
         
         return pthread_cond_signal(condition) == 0

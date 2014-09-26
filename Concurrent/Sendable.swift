@@ -6,9 +6,15 @@
 //  Copyright (c) 2014 moriturus. All rights reserved.
 //
 
-protocol Sendable {
+public protocol Sendable {
     
     typealias T
+    
+    /**
+    *  send a value
+    *  
+    *  :param: value sending value
+    */
     func send(value : T)
     
 }

@@ -8,6 +8,9 @@
 
 protocol Unlockable {
     
+    /**
+    unlock a thread
+    */
     func unlock()
     
 }

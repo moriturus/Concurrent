@@ -8,6 +8,11 @@
 
 protocol Waitable {
     
+    /**
+    wait a thread
+    
+    :returns: whether or not to succeed in waiting a thread
+    */
     func wait() -> Bool
     
 }
