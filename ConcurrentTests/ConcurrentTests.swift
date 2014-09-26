@@ -60,7 +60,7 @@ class ConcurrentTests: XCTestCase {
         
         Dispatch.async {
             
-            Dispatch.asyncOnMain {
+            Dispatch.UI {
                 
                 ch.send(NSThread.isMainThread())
                 

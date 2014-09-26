@@ -6,9 +6,15 @@
 //  Copyright (c) 2014 moriturus. All rights reserved.
 //
 
-protocol Receivable {
+public protocol Receivable {
     
     typealias T
+    
+    /**
+    *  receive a value
+    *
+    *  :returns: receiving value
+    */
     func receive() -> T
     
 }

@@ -37,6 +37,7 @@
 		BEBE9E7B19C0837E0028EB86 /* Unlockable.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE6E094E19AF2A37000047E0 /* Unlockable.swift */; };
 		BEBE9E7C19C0837E0028EB86 /* Waitable.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE6E095019AF2A37000047E0 /* Waitable.swift */; };
 		BECE3602199CA8470028ECB5 /* ConcurrentTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BECE3601199CA8470028ECB5 /* ConcurrentTests.swift */; };
+		BEF40B0319D52F74005715B2 /* SpinLock.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEF40B0219D52F74005715B2 /* SpinLock.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -60,6 +61,7 @@
 		BECE35FD199CA8470028ECB5 /* ConcurrentTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ConcurrentTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BECE3600199CA8470028ECB5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BECE3601199CA8470028ECB5 /* ConcurrentTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConcurrentTests.swift; sourceTree = "<group>"; };
+		BEF40B0219D52F74005715B2 /* SpinLock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpinLock.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,6 +125,7 @@
 				BE6E094D19AF2A37000047E0 /* SignalSendable.swift */,
 				BE6E094E19AF2A37000047E0 /* Unlockable.swift */,
 				BE6E095019AF2A37000047E0 /* Waitable.swift */,
+				BEF40B0219D52F74005715B2 /* SpinLock.swift */,
 				BECE35F5199CA8470028ECB5 /* Supporting Files */,
 			);
 			path = Concurrent;
@@ -316,6 +319,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BEF40B0319D52F74005715B2 /* SpinLock.swift in Sources */,
 				BE6E096419AF2A37000047E0 /* Waitable.swift in Sources */,
 				BE6E095119AF2A37000047E0 /* Channel.swift in Sources */,
 				BE6E096019AF2A37000047E0 /* Sendable.swift in Sources */,
