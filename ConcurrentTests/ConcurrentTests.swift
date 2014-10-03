@@ -25,7 +25,7 @@ class ConcurrentTests: XCTestCase {
     func testAsync() {
         
         let ch = Channel<Bool>()
-        
+
         Dispatch.async {
             
             ch.send(true)
@@ -119,38 +119,11 @@ class ConcurrentTests: XCTestCase {
         
     }
     
-    
-    func testDispatchChain() {
-        
-        let ch = Channel<Bool>()
-        
-        let time = dispatch_time(DISPATCH_TIME_NOW, Int64(2*NSEC_PER_SEC))
-        
-        Dispatch.async {
-            
-            ch.send(true)
-            
-        } .after(time) {
-                
-            ch.send(false)
-                
-        }
-        
-        let result1 = ch.receive()
-        
-        XCTAssertTrue(result1, "result1 is not true")
-        
-        let result2 = ch.receive()
-        
-        XCTAssertFalse(result2, "resutl2 is true")
-        
-    }
-    
     func testSenderArgument() {
         
         let ch = Channel<Bool>()
         
-        let f = { (sender : Sender<Bool>) -> Void in
+        let f = { (sender : Sender<Channel<Bool>.Q>) -> Void in
             
             let time = dispatch_time(DISPATCH_TIME_NOW, Int64(2*NSEC_PER_SEC))
             
@@ -174,7 +147,7 @@ class ConcurrentTests: XCTestCase {
         
         let ch = Channel<Bool>()
         
-        let f = { (receiver : Receiver<Bool>) -> Void in
+        let f = { (receiver : Receiver<Channel<Bool>.Q>) -> Void in
             
             let result = receiver.receive()
             XCTAssertTrue(result, "result1 is not true")
@@ -242,6 +215,26 @@ class ConcurrentTests: XCTestCase {
             ch.send(i)
             
         }
+        
+    }
+    
+    func testStackChannel() {
+        
+        let sch = StackChannel<UInt>()
+        
+        Dispatch.apply(10) {
+            
+            i in
+            
+            sch.send(i)
+            
+        }
+        
+        let nine = sch.receive()
+        let eight = sch.receive()
+        
+        XCTAssertTrue(nine == 9, "not stacked: \(nine)")
+        XCTAssertTrue(eight == 8, "not stacked: \(eight)")
         
     }
     

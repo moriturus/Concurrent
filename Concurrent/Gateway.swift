@@ -9,10 +9,12 @@
 /**
 gateway base class
 */
-private class Gateway<T> {
+private class Gateway<Q : Queue> {
+    
+    typealias T = Q.T
     
     /// buffer storage
-    var storage : SafeQueue<T>
+    var storage : Q
     
     /**
     initialize with storage
@@ -21,7 +23,7 @@ private class Gateway<T> {
     
     :returns: gateway instance
     */
-    init(_ storage : SafeQueue<T>) {
+    init(_ storage : Q) {
         
         self.storage = storage
         
@@ -32,7 +34,7 @@ private class Gateway<T> {
 /**
 sender class
 */
-public class Sender<T> : Gateway<T> {
+public class Sender<Q : Queue> : Gateway<Q> {
     
     /**
     initialize with storage
@@ -41,7 +43,7 @@ public class Sender<T> : Gateway<T> {
     
     :returns: sender instance
     */
-    override public init(_ storage: SafeQueue<T>) {
+    override public init(_ storage: Q) {
         
         super.init(storage)
         
@@ -52,7 +54,7 @@ public class Sender<T> : Gateway<T> {
 /**
 receiver class
 */
-public class Receiver<T> : Gateway<T> {
+public class Receiver<Q : Queue> : Gateway<Q> {
     
     /**
     initialize with storage
@@ -61,7 +63,7 @@ public class Receiver<T> : Gateway<T> {
     
     :returns: receiver instance
     */
-    override public init(_ storage: SafeQueue<T>) {
+    override public init(_ storage: Q) {
         
         super.init(storage)
         
@@ -81,20 +83,9 @@ extension Sender {
     
     :returns: sender instance
     */
-    convenience public init(_ receiver : Receiver<T>) {
+    convenience public init(_ receiver : Receiver<Q>) {
         
         self.init(receiver.storage)
-        
-    }
-    
-    /**
-    initialize with default storage
-    
-    :returns: sender instance
-    */
-    convenience public init() {
-        
-        self.init(SafeQueue<T>())
         
     }
     
@@ -112,20 +103,9 @@ extension Receiver {
     
     :returns: receiver instance
     */
-    convenience public init (_ sender : Sender<T>) {
+    convenience public init (_ sender : Sender<Q>) {
         
         self.init(sender.storage)
-        
-    }
-    
-    /**
-    initialize with default storage
-    
-    :returns: receiver instance
-    */
-    convenience public init() {
-        
-        self.init(SafeQueue<T>())
         
     }
     

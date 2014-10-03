@@ -9,7 +9,7 @@
 /**
 lock method protocol
 */
-protocol Lockable {
+public protocol Lockable {
     
     /**
     lock a thread

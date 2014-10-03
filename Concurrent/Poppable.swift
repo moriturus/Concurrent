@@ -9,7 +9,7 @@
 /**
 pop() method protocol
 */
-protocol Poppable {
+public protocol Poppable {
     
     typealias T
     

@@ -6,103 +6,70 @@
 //  Copyright (c) 2014 moriturus. All rights reserved.
 //
 
-/**
-Channel class
-*/
-public class Channel<T> {
+public protocol ChannelType : Sendable,Receivable {
+}
+
+public class ProtoChannel<T, Q : Queue, S : Sendable, R : Receivable where Q.T == T, S.T == T, R.T == T> : ChannelType {
     
     /// sender object
-    public let sender : Sender<T>
+    public private(set) var sender : S
     
     /// receiver object
-    public let receiver : Receiver<T>
+    public private(set) var receiver : R
     
-    /**
-    initialize with sender and receiver object
-    
-    :param: sender   sender object
-    :param: receiver receiver object
-    
-    :returns: channel instance
-    */
-    public init(_ sender : Sender<T>, _ receiver : Receiver<T>) {
+    public init(_ sender : S, _ receiver : R) {
         
         self.sender = sender
         self.receiver = receiver
         
     }
-
-}
-
-/**
-extend Channel class to convenience initializer
-*/
-extension Channel {
     
-    /**
-    convenience initializer
-    
-    :returns: channel instance that has default gateways
-    */
-    convenience public init() {
-        
-        let (s, r) = Channel<T>.gateways()
-        self.init(s,r)
-        
-    }
-    
-}
-
-/**
-extend Channel class to gateways class method
-*/
-extension Channel {
-    
-    /**
-    create and return default gateways
-    
-    :returns: tupple that has sender and receiver
-    */
-    public class func gateways() -> (Sender<T>,Receiver<T>) {
-        
-        let storage = SafeQueue<T>()
-        return (Sender(storage), Receiver(storage))
-        
-    }
-    
-}
-
-/**
-extend Channel class to Sendable protocol
-*/
-extension Channel : Sendable {
-
-    /**
-    send a value
-    
-    :param: value sending value
-    */
-    public func send(value : T) {
+    public func send(value: T) {
         
         sender.send(value)
         
     }
     
-}
-
-/**
-extend Channel class to Receivable protocol
-*/
-extension Channel : Receivable {
-    
-    /**
-    receive a value
-    
-    :returns: receiving value 
-    */
     public func receive() -> T {
         
         return receiver.receive()
+        
+    }
+    
+}
+
+/**
+Channel class
+*/
+public class Channel<T> : ProtoChannel<T,Q,S,R> {
+    
+    public typealias Q = SafeQueue<T>
+    public typealias S = Sender<Q>
+    public typealias R = Receiver<Q>
+    
+    public init() {
+
+        let q = Q()
+        let s = S(q)
+        let r = R(s)
+        super.init(s,r)
+        
+    }
+
+}
+
+public class StackChannel<T> : ProtoChannel<T,Q,S,R> {
+    
+    public typealias Q = SafeStack<T>
+    public typealias S = Sender<Q>
+    public typealias R = Receiver<Q>
+    
+    public init() {
+        
+        let q = Q()
+        let s = S(q)
+        let r = R(s)
+        super.init(s,r)
         
     }
     

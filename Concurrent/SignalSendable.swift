@@ -6,7 +6,7 @@
 //  Copyright (c) 2014 moriturus. All rights reserved.
 //
 
-protocol SignalSendable {
+public protocol SignalSendable {
     
     /**
     send a signal to thread locking/blocking system

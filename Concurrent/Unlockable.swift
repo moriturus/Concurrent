@@ -6,7 +6,7 @@
 //  Copyright (c) 2014 moriturus. All rights reserved.
 //
 
-protocol Unlockable {
+public protocol Unlockable {
     
     /**
     unlock a thread
