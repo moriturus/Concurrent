@@ -30,33 +30,6 @@ for _ in 0..<1000 {
 }
 ```
 
-or
-
-```swift
-let (s,r) = Channel<UInt>.gateways()
-
-Dispatch.async {
-
-    Dispatch.apply(1000) {
-
-        i in
-
-        s.send(i)
-
-    }
-    
-    return
-
-}
-
-for _ in 0..<1000 {
-
-    let val = r.receive()
-    println(val)
-
-}
-```
-
 # License
 
 `Concurrent` is available under the MIT License. See LICENSE file for more info.
