@@ -6,7 +6,7 @@
 //  Copyright (c) 2014 moriturus. All rights reserved.
 //
 
-public class SafeStack<T> : Queue {
+public class SafeStack<T> {
     
     /// storage
     private var storage : [T] = []
@@ -30,7 +30,7 @@ public class SafeStack<T> : Queue {
 /**
 extend SafeStack class to Pushable protocol
 */
-extension SafeStack : Pushable {
+extension SafeStack : Data {
     
     /**
     push a value to the storage
@@ -48,13 +48,6 @@ extension SafeStack : Pushable {
         mutex.signal()
         
     }
-    
-}
-
-/**
-extend SafeStack class to Poppable protocol
-*/
-extension SafeStack : Poppable {
     
     /**
     pop a value from the storage
@@ -78,13 +71,6 @@ extension SafeStack : Poppable {
         return retval
         
     }
-    
-}
-
-/**
-extend SafeStack class to isEmpty property
-*/
-extension SafeStack {
     
     public var isEmpty : Bool {
         

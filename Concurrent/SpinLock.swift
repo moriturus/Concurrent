@@ -16,6 +16,8 @@ public class SpinLock {
     /// spin locking condition
     private var spinLock = OS_SPINLOCK_INIT
     
+    public init() {}
+    
 }
 
 /**

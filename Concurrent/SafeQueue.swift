@@ -6,16 +6,10 @@
 //  Copyright (c) 2014 moriturus. All rights reserved.
 //
 
-public protocol Queue : Pushable, Poppable {
-    
-    typealias T
-    
-}
-
 /**
 thread safe queue class
 */
-public class SafeQueue<T> : Queue {
+public class SafeQueue<T> {
     
     /// storage
     private var storage : [T] = []
@@ -39,7 +33,7 @@ public class SafeQueue<T> : Queue {
 /**
 extend SafeQueue class to Pushable protocol
 */
-extension SafeQueue : Pushable {
+extension SafeQueue : Data {
     
     /**
     push a value to the storage
@@ -58,13 +52,6 @@ extension SafeQueue : Pushable {
         
     }
     
-}
-
-/**
-extend SafeQueue class to Poppable protocol
-*/
-extension SafeQueue : Poppable {
-    
     /**
     pop a value from the storage
     
@@ -80,8 +67,7 @@ extension SafeQueue : Poppable {
             
         }
         
-        let retval = storage[0]
-        storage.removeAtIndex(0)
+        let retval = storage.removeAtIndex(0)
         
         mutex.unlock()
         
@@ -89,17 +75,10 @@ extension SafeQueue : Poppable {
         
     }
     
-}
-
-/**
-extend SafeQueue class to isEmpty property
-*/
-extension SafeQueue {
-    
     public var isEmpty : Bool {
         
         return storage.isEmpty
-            
+        
     }
     
 }
