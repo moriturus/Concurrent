@@ -18,19 +18,10 @@ public struct Dispatch {
     
     :param: f        applying function
     :param: priority queue priority
-    
-    :returns: Dispatch struct type
     */
-    public static func async(f : Void -> Void, _ priority : Int = DISPATCH_QUEUE_PRIORITY_DEFAULT) -> Dispatch.Type {
-        
-        let a = Channel<Bool>()
-        let b = Channel<Bool>.gateways()
-        a.send(true)
-        a.receive()
+    public static func async(f : Void -> Void, _ priority : Int = DISPATCH_QUEUE_PRIORITY_DEFAULT) {
         
         dispatch_async(dispatch_get_global_queue(priority, 0), f)
-        
-        return self
         
     }
     
@@ -39,14 +30,10 @@ public struct Dispatch {
     
     :param: f        applying function
     :param: priority queue priority
-    
-    :returns: Dispatch struct type
     */
-    public static func sync(f : Void -> Void, _ priority : Int = DISPATCH_QUEUE_PRIORITY_DEFAULT) -> Dispatch.Type {
+    public static func sync(f : Void -> Void, _ priority : Int = DISPATCH_QUEUE_PRIORITY_DEFAULT) {
         
         dispatch_sync(dispatch_get_global_queue(priority, 0), f)
-        
-        return self
         
     }
     
@@ -54,14 +41,10 @@ public struct Dispatch {
     spawn a asynchronous job in the main queue
     
     :param: f applying function
-    
-    :returns: Dispatch struct type
     */
-    public static func UI(f : Void -> Void) -> Dispatch.Type {
+    public static func UI(f : Void -> Void) {
         
         dispatch_async(dispatch_get_main_queue(), f)
-        
-        return self
         
     }
     
@@ -71,14 +54,10 @@ public struct Dispatch {
     :param: iterations iterational count
     :param: f          applying function
     :param: priority   queue priority
-    
-    :returns: Dispatch struct type
     */
-    public static func apply(iterations : UInt, _ f : (UInt) -> Void, _ priority : Int = DISPATCH_QUEUE_PRIORITY_DEFAULT) -> Dispatch.Type {
+    public static func apply(iterations : UInt, _ f : (UInt) -> Void, _ priority : Int = DISPATCH_QUEUE_PRIORITY_DEFAULT) {
         
         dispatch_apply(iterations, dispatch_get_global_queue(priority, 0), f)
-        
-        return self
         
     }
     
@@ -88,14 +67,10 @@ public struct Dispatch {
     :param: when     time to be fired
     :param: f        applying function
     :param: priority queue priority
-    
-    :returns: Dispatch struct type
     */
-    public static func after(when : dispatch_time_t, _ f : Void -> Void, _ priority : Int = DISPATCH_QUEUE_PRIORITY_DEFAULT) -> Dispatch.Type {
+    public static func after(when : dispatch_time_t, _ f : Void -> Void, _ priority : Int = DISPATCH_QUEUE_PRIORITY_DEFAULT) {
         
         dispatch_after(when, dispatch_get_global_queue(priority, 0), f)
-        
-        return self
         
     }
     

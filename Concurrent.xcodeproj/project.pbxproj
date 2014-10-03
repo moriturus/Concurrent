@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BE16DFA719DDBD4E00B9B7DF /* SafeStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE16DFA619DDBD4E00B9B7DF /* SafeStack.swift */; };
 		BE6E095119AF2A37000047E0 /* Channel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE6E093D19AF2A37000047E0 /* Channel.swift */; };
 		BE6E095319AF2A37000047E0 /* Dispatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE6E093F19AF2A37000047E0 /* Dispatch.swift */; };
 		BE6E095519AF2A37000047E0 /* Gateway.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE6E094119AF2A37000047E0 /* Gateway.swift */; };
@@ -41,6 +42,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		BE16DFA619DDBD4E00B9B7DF /* SafeStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SafeStack.swift; sourceTree = "<group>"; };
 		BE6E093D19AF2A37000047E0 /* Channel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Channel.swift; sourceTree = "<group>"; };
 		BE6E093F19AF2A37000047E0 /* Dispatch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Dispatch.swift; sourceTree = "<group>"; };
 		BE6E094119AF2A37000047E0 /* Gateway.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Gateway.swift; sourceTree = "<group>"; };
@@ -120,6 +122,7 @@
 				BE6E094719AF2A37000047E0 /* Pushable.swift */,
 				BE6E094919AF2A37000047E0 /* Receivable.swift */,
 				BE6E094A19AF2A37000047E0 /* SafeQueue.swift */,
+				BE16DFA619DDBD4E00B9B7DF /* SafeStack.swift */,
 				BE6E094B19AF2A37000047E0 /* Semaphore.swift */,
 				BE6E094C19AF2A37000047E0 /* Sendable.swift */,
 				BE6E094D19AF2A37000047E0 /* SignalSendable.swift */,
@@ -327,6 +330,7 @@
 				BE6E095719AF2A37000047E0 /* Lockable.swift in Sources */,
 				BE6E095F19AF2A37000047E0 /* Semaphore.swift in Sources */,
 				BE6E095A19AF2A37000047E0 /* Poppable.swift in Sources */,
+				BE16DFA719DDBD4E00B9B7DF /* SafeStack.swift in Sources */,
 				BE6E095D19AF2A37000047E0 /* Receivable.swift in Sources */,
 				BE6E095919AF2A37000047E0 /* Mutex.swift in Sources */,
 				BE6E096219AF2A37000047E0 /* Unlockable.swift in Sources */,

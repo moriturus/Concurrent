@@ -9,7 +9,7 @@
 /**
 push() method protocol
 */
-protocol Pushable {
+public protocol Pushable {
     
     typealias T
     

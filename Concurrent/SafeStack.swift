@@ -1,21 +1,12 @@
 //
-//  SafeQueue.swift
+//  SafeStack.swift
 //  Concurrent
 //
-//  Created by moriturus on 8/12/14.
+//  Created by Henrique Sasaki Yuya on 10/3/14.
 //  Copyright (c) 2014 moriturus. All rights reserved.
 //
 
-public protocol Queue : Pushable, Poppable {
-    
-    typealias T
-    
-}
-
-/**
-thread safe queue class
-*/
-public class SafeQueue<T> : Queue {
+public class SafeStack<T> : Queue {
     
     /// storage
     private var storage : [T] = []
@@ -26,7 +17,7 @@ public class SafeQueue<T> : Queue {
     /**
     default initializer
     
-    :returns: SafeQueue instance
+    :returns: SafeStack instance
     */
     public init() {
         
@@ -37,9 +28,9 @@ public class SafeQueue<T> : Queue {
 }
 
 /**
-extend SafeQueue class to Pushable protocol
+extend SafeStack class to Pushable protocol
 */
-extension SafeQueue : Pushable {
+extension SafeStack : Pushable {
     
     /**
     push a value to the storage
@@ -61,9 +52,9 @@ extension SafeQueue : Pushable {
 }
 
 /**
-extend SafeQueue class to Poppable protocol
+extend SafeStack class to Poppable protocol
 */
-extension SafeQueue : Poppable {
+extension SafeStack : Poppable {
     
     /**
     pop a value from the storage
@@ -80,8 +71,7 @@ extension SafeQueue : Poppable {
             
         }
         
-        let retval = storage[0]
-        storage.removeAtIndex(0)
+        let retval = storage.removeLast()
         
         mutex.unlock()
         
@@ -92,14 +82,16 @@ extension SafeQueue : Poppable {
 }
 
 /**
-extend SafeQueue class to isEmpty property
+extend SafeStack class to isEmpty property
 */
-extension SafeQueue {
+extension SafeStack {
     
     public var isEmpty : Bool {
         
         return storage.isEmpty
-            
+        
     }
     
 }
+
+
