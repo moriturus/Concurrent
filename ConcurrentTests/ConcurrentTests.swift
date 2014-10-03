@@ -66,8 +66,6 @@ class ConcurrentTests: XCTestCase {
                 
             }
             
-            return
-            
         }
         
         Dispatch.async {
@@ -119,26 +117,41 @@ class ConcurrentTests: XCTestCase {
         
     }
     
+    func senderTester<
+        SenderType : Sendable
+        where SenderType.T : BooleanLiteralConvertible
+        >(sender : SenderType) -> Void {
+        
+        let time = dispatch_time(DISPATCH_TIME_NOW, Int64(2*NSEC_PER_SEC))
+        
+        Dispatch.after(time) {
+            
+            sender.send(true)
+            
+            return
+            
+        }
+        
+    }
+    
     func testSenderArgument() {
         
         let ch = Channel<Bool>()
         
-        let f = { (sender : Sender<Channel<Bool>.Q>) -> Void in
-            
-            let time = dispatch_time(DISPATCH_TIME_NOW, Int64(2*NSEC_PER_SEC))
-            
-            Dispatch.after(time) {
-                
-                sender.send(true)
-                
-            }
-            
-        }
-        
-        f(ch.sender)
+        senderTester(ch.sender)
         
         let result = ch.receive()
         
+        XCTAssertTrue(result, "result1 is not true")
+        
+    }
+    
+    func receiverTester<
+        ReceiverType : Receivable
+        where ReceiverType.T : BooleanType
+        >(receiver : ReceiverType) {
+        
+        let result = receiver.receive()
         XCTAssertTrue(result, "result1 is not true")
         
     }
@@ -147,20 +160,13 @@ class ConcurrentTests: XCTestCase {
         
         let ch = Channel<Bool>()
         
-        let f = { (receiver : Receiver<Channel<Bool>.Q>) -> Void in
-            
-            let result = receiver.receive()
-            XCTAssertTrue(result, "result1 is not true")
-            
-        }
-        
         Dispatch.async {
             
             ch.send(true)
             
         }
         
-        f(ch.receiver)
+        receiverTester(ch.receiver)
         
         
     }
@@ -183,8 +189,6 @@ class ConcurrentTests: XCTestCase {
                 child.send(true)
                 
             }
-            
-            return
             
         }
         

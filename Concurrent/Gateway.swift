@@ -9,12 +9,10 @@
 /**
 gateway base class
 */
-private class Gateway<Q : Queue> {
-    
-    typealias T = Q.T
+private class Gateway<D : Data> {
     
     /// buffer storage
-    var storage : Q
+    var storage : D
     
     /**
     initialize with storage
@@ -23,7 +21,7 @@ private class Gateway<Q : Queue> {
     
     :returns: gateway instance
     */
-    init(_ storage : Q) {
+    init(_ storage : D) {
         
         self.storage = storage
         
@@ -34,7 +32,7 @@ private class Gateway<Q : Queue> {
 /**
 sender class
 */
-public class Sender<Q : Queue> : Gateway<Q> {
+public class Sender<D : Data> : Gateway<D> {
     
     /**
     initialize with storage
@@ -43,7 +41,7 @@ public class Sender<Q : Queue> : Gateway<Q> {
     
     :returns: sender instance
     */
-    override public init(_ storage: Q) {
+    override public init(_ storage: D) {
         
         super.init(storage)
         
@@ -54,7 +52,7 @@ public class Sender<Q : Queue> : Gateway<Q> {
 /**
 receiver class
 */
-public class Receiver<Q : Queue> : Gateway<Q> {
+public class Receiver<D : Data> : Gateway<D> {
     
     /**
     initialize with storage
@@ -63,7 +61,7 @@ public class Receiver<Q : Queue> : Gateway<Q> {
     
     :returns: receiver instance
     */
-    override public init(_ storage: Q) {
+    override public init(_ storage: D) {
         
         super.init(storage)
         
@@ -83,7 +81,7 @@ extension Sender {
     
     :returns: sender instance
     */
-    convenience public init(_ receiver : Receiver<Q>) {
+    convenience public init(_ receiver : Receiver<D>) {
         
         self.init(receiver.storage)
         
@@ -103,7 +101,7 @@ extension Receiver {
     
     :returns: receiver instance
     */
-    convenience public init (_ sender : Sender<Q>) {
+    convenience public init (_ sender : Sender<D>) {
         
         self.init(sender.storage)
         
@@ -115,6 +113,8 @@ extension Receiver {
 extend sender class to Sendable protocol
 */
 extension Sender : Sendable {
+    
+    typealias T = D.T
     
     /**
     send a value
@@ -133,6 +133,8 @@ extension Sender : Sendable {
 extend receiver class to Receivable protocol
 */
 extension Receiver : Receivable {
+    
+    typealias T = D.T
     
     /**
     receive a value

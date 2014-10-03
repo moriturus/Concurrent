@@ -9,7 +9,7 @@
 public protocol ChannelType : Sendable,Receivable {
 }
 
-public class ProtoChannel<T, Q : Queue, S : Sendable, R : Receivable where Q.T == T, S.T == T, R.T == T> : ChannelType {
+public class ProtoChannel<T, D : Data, S : Sendable, R : Receivable where D.T == T, S.T == T, R.T == T> : ChannelType {
     
     /// sender object
     public private(set) var sender : S
@@ -41,16 +41,16 @@ public class ProtoChannel<T, Q : Queue, S : Sendable, R : Receivable where Q.T =
 /**
 Channel class
 */
-public class Channel<T> : ProtoChannel<T,Q,S,R> {
+public class Channel<T> : ProtoChannel<T,D,S,R> {
     
-    public typealias Q = SafeQueue<T>
-    public typealias S = Sender<Q>
-    public typealias R = Receiver<Q>
+    public typealias D = SafeQueue<T>
+    public typealias S = Sender<D>
+    public typealias R = Receiver<D>
     
     public init() {
 
-        let q = Q()
-        let s = S(q)
+        let d = D()
+        let s = S(d)
         let r = R(s)
         super.init(s,r)
         
@@ -58,16 +58,16 @@ public class Channel<T> : ProtoChannel<T,Q,S,R> {
 
 }
 
-public class StackChannel<T> : ProtoChannel<T,Q,S,R> {
+public class StackChannel<T> : ProtoChannel<T,D,S,R> {
     
-    public typealias Q = SafeStack<T>
-    public typealias S = Sender<Q>
-    public typealias R = Receiver<Q>
+    public typealias D = SafeStack<T>
+    public typealias S = Sender<D>
+    public typealias R = Receiver<D>
     
     public init() {
         
-        let q = Q()
-        let s = S(q)
+        let d = D()
+        let s = S(d)
         let r = R(s)
         super.init(s,r)
         

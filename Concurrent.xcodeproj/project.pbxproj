@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		BE16DFA719DDBD4E00B9B7DF /* SafeStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE16DFA619DDBD4E00B9B7DF /* SafeStack.swift */; };
+		BE6D4F1819DF0D5600589BA3 /* EmptyCheckable.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE6D4F1719DF0D5600589BA3 /* EmptyCheckable.swift */; };
+		BE6D4F1A19DF0DF100589BA3 /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE6D4F1919DF0DF100589BA3 /* Data.swift */; };
 		BE6E095119AF2A37000047E0 /* Channel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE6E093D19AF2A37000047E0 /* Channel.swift */; };
 		BE6E095319AF2A37000047E0 /* Dispatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE6E093F19AF2A37000047E0 /* Dispatch.swift */; };
 		BE6E095519AF2A37000047E0 /* Gateway.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE6E094119AF2A37000047E0 /* Gateway.swift */; };
@@ -43,6 +45,8 @@
 
 /* Begin PBXFileReference section */
 		BE16DFA619DDBD4E00B9B7DF /* SafeStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SafeStack.swift; sourceTree = "<group>"; };
+		BE6D4F1719DF0D5600589BA3 /* EmptyCheckable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmptyCheckable.swift; sourceTree = "<group>"; };
+		BE6D4F1919DF0DF100589BA3 /* Data.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
 		BE6E093D19AF2A37000047E0 /* Channel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Channel.swift; sourceTree = "<group>"; };
 		BE6E093F19AF2A37000047E0 /* Dispatch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Dispatch.swift; sourceTree = "<group>"; };
 		BE6E094119AF2A37000047E0 /* Gateway.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Gateway.swift; sourceTree = "<group>"; };
@@ -120,7 +124,9 @@
 				BE6E094519AF2A37000047E0 /* Mutex.swift */,
 				BE6E094619AF2A37000047E0 /* Poppable.swift */,
 				BE6E094719AF2A37000047E0 /* Pushable.swift */,
+				BE6D4F1719DF0D5600589BA3 /* EmptyCheckable.swift */,
 				BE6E094919AF2A37000047E0 /* Receivable.swift */,
+				BE6D4F1919DF0DF100589BA3 /* Data.swift */,
 				BE6E094A19AF2A37000047E0 /* SafeQueue.swift */,
 				BE16DFA619DDBD4E00B9B7DF /* SafeStack.swift */,
 				BE6E094B19AF2A37000047E0 /* Semaphore.swift */,
@@ -324,6 +330,7 @@
 			files = (
 				BEF40B0319D52F74005715B2 /* SpinLock.swift in Sources */,
 				BE6E096419AF2A37000047E0 /* Waitable.swift in Sources */,
+				BE6D4F1A19DF0DF100589BA3 /* Data.swift in Sources */,
 				BE6E095119AF2A37000047E0 /* Channel.swift in Sources */,
 				BE6E096019AF2A37000047E0 /* Sendable.swift in Sources */,
 				BE6E096119AF2A37000047E0 /* SignalSendable.swift in Sources */,
@@ -334,6 +341,7 @@
 				BE6E095D19AF2A37000047E0 /* Receivable.swift in Sources */,
 				BE6E095919AF2A37000047E0 /* Mutex.swift in Sources */,
 				BE6E096219AF2A37000047E0 /* Unlockable.swift in Sources */,
+				BE6D4F1819DF0D5600589BA3 /* EmptyCheckable.swift in Sources */,
 				BE6E095519AF2A37000047E0 /* Gateway.swift in Sources */,
 				BE6E095B19AF2A37000047E0 /* Pushable.swift in Sources */,
 				BE6E095E19AF2A37000047E0 /* SafeQueue.swift in Sources */,
