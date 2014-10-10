@@ -7,6 +7,13 @@
 //
 
 public protocol ChannelType : Sendable,Receivable {
+    
+    typealias S : Sendable
+    typealias R : Receivable
+    
+    var sender : S { get }
+    var receiver : R { get }
+    
 }
 
 public class ProtoChannel<T, D : Data, S : Sendable, R : Receivable where D.T == T, S.T == T, R.T == T> : ChannelType {
