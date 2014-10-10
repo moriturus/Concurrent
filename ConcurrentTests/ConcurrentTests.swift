@@ -9,6 +9,8 @@
 import Cocoa
 import XCTest
 import Concurrent
+import Darwin
+
 
 class ConcurrentTests: XCTestCase {
     
@@ -23,6 +25,10 @@ class ConcurrentTests: XCTestCase {
     }
     
     func testAsync() {
+        
+        var list = [1,2,3,4,5]
+        var offset = sizeof(Int)
+        var a : OSQueueHead
         
         let ch = Channel<Bool>()
 
