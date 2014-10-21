@@ -22,7 +22,7 @@ public class SafeQueue<T> {
     
     :returns: SafeQueue instance
     */
-    public init() {
+    public required init() {
         
         mutex = Mutex()
         

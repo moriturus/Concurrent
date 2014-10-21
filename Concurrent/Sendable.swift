@@ -9,6 +9,9 @@
 public protocol Sendable {
     
     typealias T
+    typealias D : Data
+    
+    init(_ storage : D)
     
     /**
     *  send a value

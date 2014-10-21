@@ -9,6 +9,9 @@
 public protocol Receivable {
     
     typealias T
+    typealias D : Data
+    
+    init(_ storage : D)
     
     /**
     *  receive a value

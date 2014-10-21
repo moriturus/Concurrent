@@ -10,6 +10,8 @@ public protocol Data : Pushable, Poppable, EmptyCheckable {
     
     typealias T
     
+    init()
+    
 }
 
 

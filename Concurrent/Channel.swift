@@ -16,7 +16,7 @@ public protocol ChannelType : Sendable,Receivable {
     
 }
 
-public class ProtoChannel<T, D : Data, S : Sendable, R : Receivable where D.T == T, S.T == T, R.T == T> : ChannelType {
+public class ProtoChannel<T, D : Data, S : Sendable, R : Receivable where D.T == T, S.T == T, S.D == D, R.T == T, R.D == D> : ChannelType {
     
     /// sender object
     public private(set) var sender : S
@@ -28,6 +28,14 @@ public class ProtoChannel<T, D : Data, S : Sendable, R : Receivable where D.T ==
         
         self.sender = sender
         self.receiver = receiver
+        
+    }
+    
+    public convenience required init(_ storage: D) {
+        
+        let s = S(storage)
+        let r = R(storage)
+        self.init(s,r)
         
     }
     
@@ -45,39 +53,59 @@ public class ProtoChannel<T, D : Data, S : Sendable, R : Receivable where D.T ==
     
 }
 
-/**
-Channel class
-*/
-public class Channel<T> : ProtoChannel<T,D,S,R> {
+public class DataTypeReplaceableChannel<T, D : Data where D.T == T> : ProtoChannel<T,D,S,R> {
     
-    public typealias D = SafeQueue<T>
     public typealias S = Sender<D>
     public typealias R = Receiver<D>
     
-    public init() {
-
-        let d = D()
-        let s = S(d)
+    public required init(_ storage: D) {
+        
+        let s = S(storage)
         let r = R(s)
-        super.init(s,r)
+        super.init(s, r)
+        
+    }
+    
+}
+
+/**
+Channel class
+*/
+public class Channel<T> : DataTypeReplaceableChannel<T,D> {
+    
+    public typealias D = SafeQueue<T>
+    
+    public required init(_ storage: D) {
+        
+        super.init(storage)
+        
+    }
+    
+    public convenience init() {
+        
+        let d = D()
+        self.init(d)
         
     }
 
 }
 
-public class StackChannel<T> : ProtoChannel<T,D,S,R> {
+public class StackChannel<T> : DataTypeReplaceableChannel<T,D> {
     
     public typealias D = SafeStack<T>
-    public typealias S = Sender<D>
-    public typealias R = Receiver<D>
     
-    public init() {
+    public required init(_ storage: D) {
         
-        let d = D()
-        let s = S(d)
-        let r = R(s)
-        super.init(s,r)
+        super.init(storage)
         
     }
+    
+    public convenience init() {
+        
+        let d = D()
+        self.init(d)
+        
+    }
+    
     
 }
