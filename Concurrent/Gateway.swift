@@ -41,7 +41,7 @@ public class Sender<D : Data> : Gateway<D> {
     
     :returns: sender instance
     */
-    override public init(_ storage: D) {
+    override public required init(_ storage: D) {
         
         super.init(storage)
         
@@ -61,7 +61,7 @@ public class Receiver<D : Data> : Gateway<D> {
     
     :returns: receiver instance
     */
-    override public init(_ storage: D) {
+    override public required init(_ storage: D) {
         
         super.init(storage)
         
@@ -101,7 +101,7 @@ extension Receiver {
     
     :returns: receiver instance
     */
-    convenience public init (_ sender : Sender<D>) {
+    convenience public init(_ sender : Sender<D>) {
         
         self.init(sender.storage)
         

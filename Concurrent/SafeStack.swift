@@ -19,7 +19,7 @@ public class SafeStack<T> {
     
     :returns: SafeStack instance
     */
-    public init() {
+    public required init() {
         
         mutex = Mutex()
         

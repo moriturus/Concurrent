@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		BE16DFA719DDBD4E00B9B7DF /* SafeStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE16DFA619DDBD4E00B9B7DF /* SafeStack.swift */; };
+		BE3258FA19F6007B0077206E /* EmptyCheckable.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE6D4F1719DF0D5600589BA3 /* EmptyCheckable.swift */; };
+		BE3258FB19F6007B0077206E /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE6D4F1919DF0DF100589BA3 /* Data.swift */; };
+		BE3258FC19F6007B0077206E /* SafeStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE16DFA619DDBD4E00B9B7DF /* SafeStack.swift */; };
+		BE3258FD19F6007B0077206E /* SpinLock.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEF40B0219D52F74005715B2 /* SpinLock.swift */; };
 		BE6D4F1819DF0D5600589BA3 /* EmptyCheckable.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE6D4F1719DF0D5600589BA3 /* EmptyCheckable.swift */; };
 		BE6D4F1A19DF0DF100589BA3 /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE6D4F1919DF0DF100589BA3 /* Data.swift */; };
 		BE6E095119AF2A37000047E0 /* Channel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE6E093D19AF2A37000047E0 /* Channel.swift */; };
@@ -307,6 +311,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BE3258FA19F6007B0077206E /* EmptyCheckable.swift in Sources */,
+				BE3258FB19F6007B0077206E /* Data.swift in Sources */,
+				BE3258FC19F6007B0077206E /* SafeStack.swift in Sources */,
+				BE3258FD19F6007B0077206E /* SpinLock.swift in Sources */,
 				BEBE9E6F19C0837E0028EB86 /* Channel.swift in Sources */,
 				BEBE9E7019C0837E0028EB86 /* Dispatch.swift in Sources */,
 				BEBE9E7119C0837E0028EB86 /* Gateway.swift in Sources */,
