@@ -2,11 +2,13 @@
 //  SafeStack.swift
 //  Concurrent
 //
-//  Created by Henrique Sasaki Yuya on 10/3/14.
-//  Copyright (c) 2014 moriturus. All rights reserved.
+//  Created by moriturus on 10/3/14.
+//  Copyright (c) 2014-2015 moriturus. All rights reserved.
 //
 
-public class SafeStack<T> {
+public class SafeStack<Type> {
+    
+    public typealias T = Type
     
     /// storage
     private var storage : [T] = []
@@ -17,7 +19,7 @@ public class SafeStack<T> {
     /**
     default initializer
     
-    :returns: SafeStack instance
+    - returns: SafeStack instance
     */
     public required init() {
         
@@ -35,7 +37,7 @@ extension SafeStack : Data {
     /**
     push a value to the storage
     
-    :param: value pushing value
+    - parameter value: pushing value
     */
     public func push(value: T) {
         
@@ -52,7 +54,7 @@ extension SafeStack : Data {
     /**
     pop a value from the storage
     
-    :returns: popped value
+    - returns: popped value
     */
     public func pop() -> T {
         

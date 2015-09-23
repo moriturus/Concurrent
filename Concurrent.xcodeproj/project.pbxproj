@@ -12,6 +12,7 @@
 		BE3258FB19F6007B0077206E /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE6D4F1919DF0DF100589BA3 /* Data.swift */; };
 		BE3258FC19F6007B0077206E /* SafeStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE16DFA619DDBD4E00B9B7DF /* SafeStack.swift */; };
 		BE3258FD19F6007B0077206E /* SpinLock.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEF40B0219D52F74005715B2 /* SpinLock.swift */; };
+		BE55EC281BB0810F0063D191 /* Pack.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE55EC271BB0810F0063D191 /* Pack.swift */; settings = {ASSET_TAGS = (); }; };
 		BE6D4F1819DF0D5600589BA3 /* EmptyCheckable.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE6D4F1719DF0D5600589BA3 /* EmptyCheckable.swift */; };
 		BE6D4F1A19DF0DF100589BA3 /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE6D4F1919DF0DF100589BA3 /* Data.swift */; };
 		BE6E095119AF2A37000047E0 /* Channel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE6E093D19AF2A37000047E0 /* Channel.swift */; };
@@ -49,6 +50,7 @@
 
 /* Begin PBXFileReference section */
 		BE16DFA619DDBD4E00B9B7DF /* SafeStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SafeStack.swift; sourceTree = "<group>"; };
+		BE55EC271BB0810F0063D191 /* Pack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Pack.swift; sourceTree = "<group>"; };
 		BE6D4F1719DF0D5600589BA3 /* EmptyCheckable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmptyCheckable.swift; sourceTree = "<group>"; };
 		BE6D4F1919DF0DF100589BA3 /* Data.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
 		BE6E093D19AF2A37000047E0 /* Channel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Channel.swift; sourceTree = "<group>"; };
@@ -121,6 +123,7 @@
 		BECE35F4199CA8470028ECB5 /* Concurrent */ = {
 			isa = PBXGroup;
 			children = (
+				BE55EC271BB0810F0063D191 /* Pack.swift */,
 				BE6E093D19AF2A37000047E0 /* Channel.swift */,
 				BE6E093F19AF2A37000047E0 /* Dispatch.swift */,
 				BE6E094119AF2A37000047E0 /* Gateway.swift */,
@@ -248,7 +251,9 @@
 		BECE35E9199CA8470028ECB5 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0600;
+				LastSwiftMigration = 0700;
+				LastSwiftUpdateCheck = 0700;
+				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = moriturus;
 				TargetAttributes = {
 					BEBE9E5519C083230028EB86 = {
@@ -344,6 +349,7 @@
 				BE6E096119AF2A37000047E0 /* SignalSendable.swift in Sources */,
 				BE6E095719AF2A37000047E0 /* Lockable.swift in Sources */,
 				BE6E095F19AF2A37000047E0 /* Semaphore.swift in Sources */,
+				BE55EC281BB0810F0063D191 /* Pack.swift in Sources */,
 				BE6E095A19AF2A37000047E0 /* Poppable.swift in Sources */,
 				BE16DFA719DDBD4E00B9B7DF /* SafeStack.swift in Sources */,
 				BE6E095D19AF2A37000047E0 /* Receivable.swift in Sources */,
@@ -384,6 +390,8 @@
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				PRODUCT_BUNDLE_IDENTIFIER = "jp.moriturus.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
@@ -403,6 +411,8 @@
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				PRODUCT_BUNDLE_IDENTIFIER = "jp.moriturus.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
@@ -431,6 +441,7 @@
 				COPY_PHASE_STRIP = NO;
 				CURRENT_PROJECT_VERSION = 1;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -509,6 +520,8 @@
 					"$(inherited)",
 					"$(SDKROOT)/usr/lib/system/introspection",
 				);
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				PRODUCT_BUNDLE_IDENTIFIER = "jp.moriturus.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -532,6 +545,8 @@
 					"$(inherited)",
 					"$(SDKROOT)/usr/lib/system/introspection",
 				);
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				PRODUCT_BUNDLE_IDENTIFIER = "jp.moriturus.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 			};
@@ -551,6 +566,7 @@
 				);
 				INFOPLIST_FILE = ConcurrentTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "jp.moriturus.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -565,6 +581,7 @@
 				);
 				INFOPLIST_FILE = ConcurrentTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "jp.moriturus.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;

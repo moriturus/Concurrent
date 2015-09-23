@@ -3,7 +3,7 @@
 //  Concurrent
 //
 //  Created by moriturus on 8/12/14.
-//  Copyright (c) 2014 moriturus. All rights reserved.
+//  Copyright (c) 2014-2015 moriturus. All rights reserved.
 //
 
 import Dispatch
@@ -19,9 +19,9 @@ public class Semaphore {
     /**
     initialize with semaphore's capacity
     
-    :param: count capacity
+    - parameter count: capacity
     
-    :returns: Semaphore instance
+    - returns: Semaphore instance
     */
     public init(_ count : Int) {
         
@@ -39,7 +39,7 @@ extension Semaphore {
     /**
     same as init(1)
     
-    :returns: Semaphore instance
+    - returns: Semaphore instance
     */
     public convenience init() {
         
@@ -89,7 +89,7 @@ extension Semaphore : Waitable {
     /**
     wait a thread forever
     
-    :returns: whether or not to
+    - returns: whether or not to
     */
     public func wait() -> Bool {
         
@@ -100,9 +100,9 @@ extension Semaphore : Waitable {
     /**
     wait a thread until definited time
     
-    :param: timeout timeout value
+    - parameter timeout: timeout value
     
-    :returns: whether or not to succeed in waiting a thread
+    - returns: whether or not to succeed in waiting a thread
     */
     public func wait(timeout : dispatch_time_t!) -> Bool {
         
@@ -120,7 +120,7 @@ extension Semaphore : SignalSendable {
     /**
     send a signal to semaphore
     
-    :returns: whether or not to succeed in awaking a thread
+    - returns: whether or not to succeed in awaking a thread
     */
     public func signal() -> Bool {
         

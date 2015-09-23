@@ -3,7 +3,7 @@
 //  Concurrent
 //
 //  Created by moriturus on 8/12/14.
-//  Copyright (c) 2014 moriturus. All rights reserved.
+//  Copyright (c) 2014-2015 moriturus. All rights reserved.
 //
 
 /**
@@ -17,9 +17,9 @@ private class Gateway<D : Data> {
     /**
     initialize with storage
     
-    :param: storage buffer storage
+    - parameter storage: buffer storage
     
-    :returns: gateway instance
+    - returns: gateway instance
     */
     init(_ storage : D) {
         
@@ -37,9 +37,9 @@ public class Sender<D : Data> : Gateway<D> {
     /**
     initialize with storage
     
-    :param: storage buffer storage
+    - parameter storage: buffer storage
     
-    :returns: sender instance
+    - returns: sender instance
     */
     override public required init(_ storage: D) {
         
@@ -57,9 +57,9 @@ public class Receiver<D : Data> : Gateway<D> {
     /**
     initialize with storage
     
-    :param: storage buffer storage
+    - parameter storage: buffer storage
     
-    :returns: receiver instance
+    - returns: receiver instance
     */
     override public required init(_ storage: D) {
         
@@ -77,9 +77,9 @@ extension Sender {
     /**
     initialize with Receiver class
     
-    :param: receiver receiver object which is shared its storage with the sender object
+    - parameter receiver: receiver object which is shared its storage with the sender object
     
-    :returns: sender instance
+    - returns: sender instance
     */
     convenience public init(_ receiver : Receiver<D>) {
         
@@ -97,9 +97,9 @@ extension Receiver {
     /**
     initialize with Sender class
     
-    :param: sender sender object which is shared its storage with the receiver object
+    - parameter sender: sender object which is shared its storage with the receiver object
     
-    :returns: receiver instance
+    - returns: receiver instance
     */
     convenience public init(_ sender : Sender<D>) {
         
@@ -114,12 +114,12 @@ extend sender class to Sendable protocol
 */
 extension Sender : Sendable {
     
-    typealias T = D.T
+    public typealias T = D.T
     
     /**
     send a value
     
-    :param: value sending value
+    - parameter value: sending value
     */
     public func send(value : T) {
         
@@ -134,12 +134,12 @@ extend receiver class to Receivable protocol
 */
 extension Receiver : Receivable {
     
-    typealias T = D.T
+    public typealias T = D.T
     
     /**
     receive a value
     
-    :returns: receiving value
+    - returns: receiving value
     */
     public func receive() -> T {
         

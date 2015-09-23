@@ -3,13 +3,15 @@
 //  Concurrent
 //
 //  Created by moriturus on 8/12/14.
-//  Copyright (c) 2014 moriturus. All rights reserved.
+//  Copyright (c) 2014-2015 moriturus. All rights reserved.
 //
 
 /**
 thread safe queue class
 */
-public class SafeQueue<T> {
+public class SafeQueue<Type> {
+    
+    public typealias T = Type
     
     /// storage
     private var storage : [T] = []
@@ -20,7 +22,7 @@ public class SafeQueue<T> {
     /**
     default initializer
     
-    :returns: SafeQueue instance
+    - returns: SafeQueue instance
     */
     public required init() {
         
@@ -38,7 +40,7 @@ extension SafeQueue : Data {
     /**
     push a value to the storage
     
-    :param: value pushing value
+    - parameter value: pushing value
     */
     public func push(value: T) {
         
@@ -55,7 +57,7 @@ extension SafeQueue : Data {
     /**
     pop a value from the storage
     
-    :returns: popped value
+    - returns: popped value
     */
     public func pop() -> T {
         
