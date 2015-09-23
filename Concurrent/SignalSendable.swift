@@ -11,7 +11,7 @@ public protocol SignalSendable {
     /**
     send a signal to thread locking/blocking system
     
-    :returns: whether or not to succeed in awaking a thread
+    - returns: whether or not to succeed in awaking a thread
     */
     func signal() -> Bool
     

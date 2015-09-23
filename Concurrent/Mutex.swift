@@ -25,7 +25,7 @@ public class Mutex {
     /**
     initializer
     
-    :returns: mutex class instance
+    - returns: mutex class instance
     */
     public init() {
         
@@ -93,7 +93,7 @@ extension Mutex : Waitable {
     /**
     wait a thread until signal()
     
-    :returns: whether or not succeed in waiting a thread
+    - returns: whether or not succeed in waiting a thread
     */
     public func wait() -> Bool {
         
@@ -111,7 +111,7 @@ extension Mutex : SignalSendable {
     /**
     send a signal to the waiting thread
     
-    :returns: whether or not succeed in sending a signal to a thread
+    - returns: whether or not succeed in sending a signal to a thread
     */
     public func signal() -> Bool {
         

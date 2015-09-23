@@ -16,7 +16,7 @@ public protocol Poppable {
     /**
     pop a object from data type
     
-    :returns: popped object
+    - returns: popped object
     */
     func pop() -> T
     

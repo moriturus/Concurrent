@@ -16,7 +16,7 @@ public protocol Pushable {
     /**
     push a object to data type
     
-    :param: value pushing object
+    - parameter value: pushing object
     */
     func push(value : T)
     

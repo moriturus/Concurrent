@@ -16,7 +16,7 @@ public protocol Sendable {
     /**
     *  send a value
     *  
-    *  :param: value sending value
+    *  - parameter value: sending value
     */
     func send(value : T)
     

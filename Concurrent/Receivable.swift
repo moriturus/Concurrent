@@ -9,14 +9,14 @@
 public protocol Receivable {
     
     typealias T
-    typealias D : Data
+    typealias D: Data
     
     init(_ storage : D)
     
     /**
     *  receive a value
     *
-    *  :returns: receiving value
+    *  - returns: receiving value
     */
     func receive() -> T
     

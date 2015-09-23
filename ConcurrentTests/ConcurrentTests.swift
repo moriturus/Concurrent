@@ -11,7 +11,6 @@ import XCTest
 import Concurrent
 import Darwin
 
-
 class ConcurrentTests: XCTestCase {
     
     override func setUp() {
@@ -107,6 +106,7 @@ class ConcurrentTests: XCTestCase {
         let ch = Channel<Bool>()
         let time = dispatch_time(DISPATCH_TIME_NOW, Int64(2*NSEC_PER_SEC))
         
+        
         Dispatch.after(time) {
             
             ch.send(true)
@@ -201,14 +201,14 @@ class ConcurrentTests: XCTestCase {
     
     func testSampleCode() {
         
-        let ch = Channel<UInt>()
+        let ch = Channel<Int>()
         
         Dispatch.async {
             
             for i in 0..<1000 {
                 
                 let val = ch.receive()
-                XCTAssertTrue(UInt(i) == val, "\(val) is not equal to \(i)")
+                XCTAssertTrue(i == val, "\(val) is not equal to \(i)")
                 
             }
             
@@ -220,13 +220,15 @@ class ConcurrentTests: XCTestCase {
             
             ch.send(i)
             
+            return
+            
         }
         
     }
     
     func testStackChannel() {
         
-        let sch = StackChannel<UInt>()
+        let sch = StackChannel<Int>()
         
         Dispatch.apply(10) {
             
@@ -241,6 +243,71 @@ class ConcurrentTests: XCTestCase {
         
         XCTAssertTrue(nine == 9, "not stacked: \(nine)")
         XCTAssertTrue(eight == 8, "not stacked: \(eight)")
+        
+    }
+    
+    func testPack() {
+        
+        let receiver = Pack<Int> {
+            (sender) in
+            
+            sleep(10)
+            
+            sender.send(10)
+            
+        }.start()
+        
+        let ten = receiver.receive()
+        
+        XCTAssertTrue(ten == 10, "'ten' is not equal to 10")
+        
+    }
+    
+    func testStackChannelPack() {
+        
+        let receiver = StackChannelPack<Int> {
+            
+            (sender) in
+            
+            sender.send(10)
+            sender.send(9)
+            
+            sleep(10)
+            
+        }.start()
+        
+        let nine = receiver.receive()
+        let ten = receiver.receive()
+        
+        XCTAssertTrue(nine == 9)
+        XCTAssertTrue(ten == 10)
+        
+    }
+    
+    func testNestedPack() {
+        
+        let p1 = Pack<Pack<Int>> {
+            s1 in
+            
+            sleep(2)
+            
+            let p2 = Pack<Int> {
+                s2 in
+                
+                sleep(3)
+                s2.send(10)
+                
+            }
+            
+            s1.send(p2)
+        }
+        
+        let r1 = p1.start()
+        let r2 = r1.receive().start()
+        
+        let ten = r2.receive()
+        
+        XCTAssertTrue(ten == 10)
         
     }
     

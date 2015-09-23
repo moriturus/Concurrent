@@ -6,7 +6,7 @@
 //  Copyright (c) 2014 moriturus. All rights reserved.
 //
 
-public protocol ChannelType : Sendable,Receivable {
+public protocol ChannelType : Sendable, Receivable {
     
     typealias S : Sendable
     typealias R : Receivable
@@ -53,7 +53,7 @@ public class ProtoChannel<T, D : Data, S : Sendable, R : Receivable where D.T ==
     
 }
 
-public class DataTypeReplaceableChannel<T, D : Data where D.T == T> : ProtoChannel<T,D,S,R> {
+public class DataTypeReplaceableChannel<T, D: Data where D.T == T> : ProtoChannel<T, D, Sender<D>, Receiver<D>> {
     
     public typealias S = Sender<D>
     public typealias R = Receiver<D>
@@ -71,7 +71,7 @@ public class DataTypeReplaceableChannel<T, D : Data where D.T == T> : ProtoChann
 /**
 Channel class
 */
-public class Channel<T> : DataTypeReplaceableChannel<T,D> {
+public class Channel<T> : DataTypeReplaceableChannel<T, SafeQueue<T>> {
     
     public typealias D = SafeQueue<T>
     
@@ -90,7 +90,7 @@ public class Channel<T> : DataTypeReplaceableChannel<T,D> {
 
 }
 
-public class StackChannel<T> : DataTypeReplaceableChannel<T,D> {
+public class StackChannel<T> : DataTypeReplaceableChannel<T, SafeStack<T>> {
     
     public typealias D = SafeStack<T>
     
