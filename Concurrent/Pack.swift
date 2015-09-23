@@ -2,7 +2,7 @@
 //  Promise.swift
 //  Concurrent
 //
-//  Created by Henrique Sasaki Yuya on 9/22/15.
+//  Created by moriturus on 9/22/15.
 //  Copyright © 2015 moriturus. All rights reserved.
 //
 

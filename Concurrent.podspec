@@ -2,7 +2,7 @@
 Pod::Spec.new do |s|
 
   s.name         = "Concurrent"
-  s.version      = "1.2"
+  s.version      = "1.2.0"
   s.summary      = "Swift's concurrency programming library influenced by Go and Rust"
 
   s.description  = <<-DESC
