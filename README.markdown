@@ -1,6 +1,8 @@
 # Concurrent
 
 [![Gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/moriturus/Concurrent?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+[![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
+[![CocoaPods compatible](https://img.shields.io/badge/pod-1.2.0-brightgreen.svg?style=flat)](https://img.shields.io/badge/pod-1.2.0-brightgreen.svg?style=flat)
 
 `Concurrent` is a minimum concurrency programming library that is influenced by Google Go Language and Rust Language.  
 The Library is now developing for iOS 8 and OSX Yosemite and written in Apple Swift.
@@ -19,7 +21,7 @@ Dispatch.async {
         ch.send(i)
 
     }
-    
+
     return
 
 }
