@@ -2,12 +2,12 @@
 Pod::Spec.new do |s|
 
   s.name         = "Concurrent"
-  s.version      = "1.2.0"
+  s.version      = "2.0.0"
   s.summary      = "Swift's concurrency programming library influenced by Go and Rust"
 
   s.description  = <<-DESC
   Concurrent is a minimum concurrency programming library that is influenced by Google Go Language and Rust Language.
-  The Library is now developing for iOS 8 and OSX Yosemite and written in Apple Swift.
+  The Library is now developing for iOS 8 and OSX Yosemite and written in Apple Swift 2.
                    DESC
 
   s.homepage     = "https://github.com/moriturus/Concurrent"
@@ -21,7 +21,7 @@ Pod::Spec.new do |s|
   s.watchos.deployment_target = "2.0"
   s.requires_arc     = true
 
-  s.source       = { :git => "https://github.com/moriturus/Concurrent.git", :tag => "1.2.0" }
+  s.source       = { :git => "https://github.com/moriturus/Concurrent.git", :tag => "2.0.0" }
   s.source_files  = "Classes", "Concurrent/*.swift"
 
 end
