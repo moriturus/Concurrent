@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "BEBE9E5519C083230028EB86"
-               BuildableName = "Concurrent_iOS.framework"
+               BuildableName = "Concurrent.framework"
                BlueprintName = "Concurrent_iOS"
                ReferencedContainer = "container:Concurrent.xcodeproj">
             </BuildableReference>
@@ -46,7 +46,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "BEBE9E5519C083230028EB86"
-            BuildableName = "Concurrent_iOS.framework"
+            BuildableName = "Concurrent.framework"
             BlueprintName = "Concurrent_iOS"
             ReferencedContainer = "container:Concurrent.xcodeproj">
          </BuildableReference>
@@ -64,7 +64,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "BEBE9E5519C083230028EB86"
-            BuildableName = "Concurrent_iOS.framework"
+            BuildableName = "Concurrent.framework"
             BlueprintName = "Concurrent_iOS"
             ReferencedContainer = "container:Concurrent.xcodeproj">
          </BuildableReference>

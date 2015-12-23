@@ -30,6 +30,8 @@
 		BE6E096219AF2A37000047E0 /* Unlockable.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE6E094E19AF2A37000047E0 /* Unlockable.swift */; };
 		BE6E096419AF2A37000047E0 /* Waitable.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE6E095019AF2A37000047E0 /* Waitable.swift */; };
 		BE6E096519AF2AA1000047E0 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BECE3600199CA8470028ECB5 /* Info.plist */; };
+		BEA3B7731BDA807B00D2F67A /* Concurrent.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BEBE9E5619C083230028EB86 /* Concurrent.framework */; settings = {ASSET_TAGS = (); }; };
+		BEA3B7791BDA808800D2F67A /* ConcurrentTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BECE3601199CA8470028ECB5 /* ConcurrentTests.swift */; settings = {ASSET_TAGS = (); }; };
 		BEBE9E6F19C0837E0028EB86 /* Channel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE6E093D19AF2A37000047E0 /* Channel.swift */; };
 		BEBE9E7019C0837E0028EB86 /* Dispatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE6E093F19AF2A37000047E0 /* Dispatch.swift */; };
 		BEBE9E7119C0837E0028EB86 /* Gateway.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE6E094119AF2A37000047E0 /* Gateway.swift */; };
@@ -47,6 +49,16 @@
 		BECE3602199CA8470028ECB5 /* ConcurrentTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BECE3601199CA8470028ECB5 /* ConcurrentTests.swift */; };
 		BEF40B0319D52F74005715B2 /* SpinLock.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEF40B0219D52F74005715B2 /* SpinLock.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		BEA3B7741BDA807B00D2F67A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BECE35E9199CA8470028ECB5 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = BEBE9E5519C083230028EB86;
+			remoteInfo = Concurrent_iOS;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		BE16DFA619DDBD4E00B9B7DF /* SafeStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SafeStack.swift; sourceTree = "<group>"; };
@@ -67,7 +79,8 @@
 		BE6E094D19AF2A37000047E0 /* SignalSendable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignalSendable.swift; sourceTree = "<group>"; };
 		BE6E094E19AF2A37000047E0 /* Unlockable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Unlockable.swift; sourceTree = "<group>"; };
 		BE6E095019AF2A37000047E0 /* Waitable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Waitable.swift; sourceTree = "<group>"; };
-		BEBE9E5619C083230028EB86 /* Concurrent_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Concurrent_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BEA3B76E1BDA807B00D2F67A /* ConcurrentTests_iOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ConcurrentTests_iOS.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		BEBE9E5619C083230028EB86 /* Concurrent.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Concurrent.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BECE35F2199CA8470028ECB5 /* Concurrent.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Concurrent.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BECE35F6199CA8470028ECB5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BECE35FD199CA8470028ECB5 /* ConcurrentTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ConcurrentTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -77,6 +90,14 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		BEA3B76B1BDA807B00D2F67A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BEA3B7731BDA807B00D2F67A /* Concurrent.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		BEBE9E5219C083230028EB86 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -115,7 +136,8 @@
 			children = (
 				BECE35F2199CA8470028ECB5 /* Concurrent.framework */,
 				BECE35FD199CA8470028ECB5 /* ConcurrentTests.xctest */,
-				BEBE9E5619C083230028EB86 /* Concurrent_iOS.framework */,
+				BEBE9E5619C083230028EB86 /* Concurrent.framework */,
+				BEA3B76E1BDA807B00D2F67A /* ConcurrentTests_iOS.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -192,6 +214,24 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
+		BEA3B76D1BDA807B00D2F67A /* ConcurrentTests_iOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BEA3B7781BDA807B00D2F67A /* Build configuration list for PBXNativeTarget "ConcurrentTests_iOS" */;
+			buildPhases = (
+				BEA3B76A1BDA807B00D2F67A /* Sources */,
+				BEA3B76B1BDA807B00D2F67A /* Frameworks */,
+				BEA3B76C1BDA807B00D2F67A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				BEA3B7751BDA807B00D2F67A /* PBXTargetDependency */,
+			);
+			name = ConcurrentTests_iOS;
+			productName = ConcurrentTests_iOS;
+			productReference = BEA3B76E1BDA807B00D2F67A /* ConcurrentTests_iOS.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		BEBE9E5519C083230028EB86 /* Concurrent_iOS */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = BEBE9E6919C083230028EB86 /* Build configuration list for PBXNativeTarget "Concurrent_iOS" */;
@@ -207,7 +247,7 @@
 			);
 			name = Concurrent_iOS;
 			productName = ConcurrentiOS;
-			productReference = BEBE9E5619C083230028EB86 /* Concurrent_iOS.framework */;
+			productReference = BEBE9E5619C083230028EB86 /* Concurrent.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		BECE35F1199CA8470028ECB5 /* Concurrent */ = {
@@ -256,6 +296,9 @@
 				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = moriturus;
 				TargetAttributes = {
+					BEA3B76D1BDA807B00D2F67A = {
+						CreatedOnToolsVersion = 7.0.1;
+					};
 					BEBE9E5519C083230028EB86 = {
 						CreatedOnToolsVersion = 6.1;
 					};
@@ -282,11 +325,19 @@
 				BECE35F1199CA8470028ECB5 /* Concurrent */,
 				BEBE9E5519C083230028EB86 /* Concurrent_iOS */,
 				BECE35FC199CA8470028ECB5 /* ConcurrentTests */,
+				BEA3B76D1BDA807B00D2F67A /* ConcurrentTests_iOS */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		BEA3B76C1BDA807B00D2F67A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		BEBE9E5419C083230028EB86 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -312,6 +363,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		BEA3B76A1BDA807B00D2F67A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BEA3B7791BDA808800D2F67A /* ConcurrentTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		BEBE9E5119C083230028EB86 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -373,7 +432,44 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		BEA3B7751BDA807B00D2F67A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = BEBE9E5519C083230028EB86 /* Concurrent_iOS */;
+			targetProxy = BEA3B7741BDA807B00D2F67A /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin XCBuildConfiguration section */
+		BEA3B7761BDA807B00D2F67A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = ConcurrentTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "jp.henrique.ConcurrentTests-iOS";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		BEA3B7771BDA807B00D2F67A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = ConcurrentTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "jp.henrique.ConcurrentTests-iOS";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
 		BEBE9E6A19C083230028EB86 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -392,7 +488,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.9;
 				PRODUCT_BUNDLE_IDENTIFIER = "jp.moriturus.$(PRODUCT_NAME:rfc1034identifier)";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Concurrent;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -413,7 +509,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.9;
 				PRODUCT_BUNDLE_IDENTIFIER = "jp.moriturus.$(PRODUCT_NAME:rfc1034identifier)";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Concurrent;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -589,6 +685,14 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		BEA3B7781BDA807B00D2F67A /* Build configuration list for PBXNativeTarget "ConcurrentTests_iOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BEA3B7761BDA807B00D2F67A /* Debug */,
+				BEA3B7771BDA807B00D2F67A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
 		BEBE9E6919C083230028EB86 /* Build configuration list for PBXNativeTarget "Concurrent_iOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

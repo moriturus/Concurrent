@@ -1,5 +1,5 @@
 //
-//  Promise.swift
+//  Pack.swift
 //  Concurrent
 //
 //  Created by moriturus on 9/22/15.
@@ -14,7 +14,7 @@ public protocol PackType {
     
 }
 
-public class ChannelTypeReplaceablePack<CT: ChannelType, T where CT.T == T>: PackType {
+public class ChannelTypeReplaceablePack<CT: ChannelType>: PackType {
     
     public typealias R = CT.R
     public typealias S = CT.S
@@ -46,7 +46,7 @@ public class ChannelTypeReplaceablePack<CT: ChannelType, T where CT.T == T>: Pac
 }
 
 
-public class Pack<T>: ChannelTypeReplaceablePack<Channel<T>, T> {
+public class Pack<T>: ChannelTypeReplaceablePack<Channel<T>> {
     
     public init(task: Task) {
         
@@ -56,7 +56,7 @@ public class Pack<T>: ChannelTypeReplaceablePack<Channel<T>, T> {
 
 }
 
-public class StackChannelPack<T>: ChannelTypeReplaceablePack<StackChannel<T>, T> {
+public class StackChannelPack<T>: ChannelTypeReplaceablePack<StackChannel<T>> {
     
     public init(task: Task) {
         
